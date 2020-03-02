@@ -1,12 +1,16 @@
 const express = require('express');
 
+const mongoose =require('mongoose');
+
+const Produto = require('./ProdutoSchema');
+
 const server = express();
 
-var produtos = [
-{ id: 1, nome: 'Computador', preco: 1200.20 },
-{ id: 2, nome: 'Mouse', preco: 20.50 },
-{ id: 3, nome: 'Teclado', preco: 220.50 }
-];
+const MONGO_URL ="mongodb+srv://user:senha@clusterlp3noite-l5ovp.mongodb.net/dbproduto?retryWrites=true&w=majority"
+
+const db = mongoose.connect(MONGO_URL);
+
+var produtos = [];
 
 server.use(express.json());
 
